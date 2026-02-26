@@ -330,13 +330,13 @@ a {
   background-size:var(--bg-size);
   background-position:var(--bg-position);
   clip-path:inset(0 100% 100% 0);
-  transform:scale(.96);
-  transition:clip-path .55s steps(5,end) var(--delay),transform .55s ease var(--delay);
+  transform:none;
+  transition:clip-path .55s steps(5,end) var(--delay);
 }
 
 .section-hero__fragment-active {
   clip-path:inset(0 0 0 0);
-  transform:scale(1);
+  transform:none;
 }
 
 .section-hero__media {
