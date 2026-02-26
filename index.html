@@ -1170,7 +1170,7 @@
                         piece.style.setProperty('--bg-size', `${fragmentColumns * 100}% ${fragmentRows * 100}%`);
                         piece.style.setProperty('--bg-position', `${(column * 100) / (fragmentColumns - 1)}% ${(row * 100) / (fragmentRows - 1)}%`);
                         piece.style.setProperty('--bg-image', backgroundImage);
-                        piece.style.animationDelay = `${(row + column) * fragmentStaggerMs}ms`;
+                        piece.style.setProperty('--delay', `${(row + column) * fragmentStaggerMs}ms`);
                         pieces.push(piece);
                     }
                 }
@@ -1179,10 +1179,9 @@
                 heroFragmentLayer.append(...pieces);
                 heroFragmentLayer.classList.add('section-hero__fragment-layer-active');
 
-                window.setTimeout(() => {
-                    heroFragmentLayer.classList.remove('section-hero__fragment-layer-active');
-                    heroFragmentLayer.innerHTML = '';
-                }, transitionMs);
+                window.requestAnimationFrame(() => {
+                    pieces.forEach((piece) => piece.classList.add('section-hero__fragment-active'));
+                });
             };
 
             const showSlide = (index) => {
@@ -1206,6 +1205,8 @@
                 window.setTimeout(() => {
                     showSlide(nextIndex);
                     heroIndex = nextIndex;
+                    heroFragmentLayer.classList.remove('section-hero__fragment-layer-active');
+                    heroFragmentLayer.innerHTML = '';
                     isAnimating = false;
                 }, transitionMs);
             };
