@@ -1248,9 +1248,6 @@
                 });
             });
 
-            heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
-            heroSection.addEventListener('mouseleave', startHeroAutoPlay);
-
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
                     stopHeroAutoPlay();
