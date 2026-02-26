@@ -242,6 +242,8 @@
                     </div>
                 </div>
             </div>
+            <div class="section-hero__fragment-layer" id="hero-fragment-layer" aria-hidden="true">
+            </div>
             <button class="section-hero__nav-prev" id="hero-prev" type="button">
                 <span class="section-hero__nav-icon material-symbols-outlined">
                     chevron_left
@@ -1120,7 +1122,6 @@
                 </div>
             </div>
         </footer>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             (() => {
         const heroSection = document.getElementById('hero-carousel');
@@ -1128,12 +1129,16 @@
         const heroDots = Array.from(document.querySelectorAll('[data-hero-dot]'));
         const heroPrev = document.getElementById('hero-prev');
         const heroNext = document.getElementById('hero-next');
-        const $ = window.jQuery;
+        const heroFragmentLayer = document.getElementById('hero-fragment-layer');
 
-        if (heroSection && heroSlides.length && heroDots.length) {
+        if (heroSection && heroSlides.length && heroDots.length && heroFragmentLayer) {
             let heroIndex = 0;
             let heroTimer = null;
+            let isAnimating = false;
             const autoplayMs = 7000;
+            const transitionMs = 900;
+            const fragmentColumns = 6;
+            const fragmentRows = 4;
 
             const renderDots = (index) => {
                 heroDots.forEach((dot, dotIndex) => {
@@ -1145,52 +1150,62 @@
                 });
             };
 
-            const renderHero = (index) => {
-                if ($) {
-                    const currentSlide = heroSlides[heroIndex];
-                    const nextSlide = heroSlides[index];
+            const getSlideImage = (slide) => {
+                const imageElement = slide.querySelector('.section-hero__image');
+                return imageElement ? window.getComputedStyle(imageElement).backgroundImage : '';
+            };
 
-                    if (currentSlide === nextSlide) {
-                        renderDots(index);
-                        return;
+            const playFragmentTransition = (backgroundImage) => {
+                const pieces = [];
+                for (let row = 0; row < fragmentRows; row += 1) {
+                    for (let column = 0; column < fragmentColumns; column += 1) {
+                        const piece = document.createElement('span');
+                        piece.className = 'section-hero__fragment';
+                        piece.style.setProperty('--left', `${(column * 100) / fragmentColumns}%`);
+                        piece.style.setProperty('--top', `${(row * 100) / fragmentRows}%`);
+                        piece.style.setProperty('--width', `${100 / fragmentColumns}%`);
+                        piece.style.setProperty('--height', `${100 / fragmentRows}%`);
+                        piece.style.setProperty('--bg-size', `${fragmentColumns * 100}% ${fragmentRows * 100}%`);
+                        piece.style.setProperty('--bg-position', `${(column * 100) / (fragmentColumns - 1)}% ${(row * 100) / (fragmentRows - 1)}%`);
+                        piece.style.setProperty('--bg-image', backgroundImage);
+                        piece.style.animationDelay = `${(row * fragmentColumns + column) * 30}ms`;
+                        pieces.push(piece);
                     }
-
-                    const $current = $(currentSlide);
-                    const $next = $(nextSlide);
-
-                    $current
-                        .removeClass('section-hero__slide-entering')
-                        .addClass('section-hero__slide-leaving')
-                        .stop(true, true)
-                        .fadeOut(650, function () {
-                            $(this)
-                                .removeClass('section-hero__slide-active section-hero__slide-leaving')
-                                .attr('aria-hidden', 'true');
-                        });
-
-                    $next
-                        .stop(true, true)
-                        .css('display', 'none')
-                        .addClass('section-hero__slide-active section-hero__slide-entering')
-                        .attr('aria-hidden', 'false')
-                        .fadeIn(650, function () {
-                            $(this).removeClass('section-hero__slide-entering');
-                        });
-                } else {
-                    heroSlides.forEach((slide, slideIndex) => {
-                        const active = slideIndex === index;
-                        slide.classList.toggle('section-hero__slide-active', active);
-                        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
-                    });
                 }
 
+                heroFragmentLayer.innerHTML = '';
+                heroFragmentLayer.append(...pieces);
+                heroFragmentLayer.classList.add('section-hero__fragment-layer-active');
+
+                window.setTimeout(() => {
+                    heroFragmentLayer.classList.remove('section-hero__fragment-layer-active');
+                    heroFragmentLayer.innerHTML = '';
+                }, transitionMs);
+            };
+
+            const showSlide = (index) => {
+                heroSlides.forEach((slide, slideIndex) => {
+                    const active = slideIndex === index;
+                    slide.classList.toggle('section-hero__slide-active', active);
+                    slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+                });
                 renderDots(index);
             };
 
             const goToHero = (index) => {
+                if (isAnimating) return;
                 const nextIndex = (index + heroSlides.length) % heroSlides.length;
-                renderHero(nextIndex);
-                heroIndex = nextIndex;
+                if (nextIndex === heroIndex) return;
+
+                const nextBackgroundImage = getSlideImage(heroSlides[nextIndex]);
+                isAnimating = true;
+                playFragmentTransition(nextBackgroundImage);
+
+                window.setTimeout(() => {
+                    showSlide(nextIndex);
+                    heroIndex = nextIndex;
+                    isAnimating = false;
+                }, 260);
             };
 
             const stopHeroAutoPlay = () => {
@@ -1207,10 +1222,7 @@
                 }, autoplayMs);
             };
 
-            if ($) {
-                $(heroSlides).hide().attr('aria-hidden', 'true');
-                $(heroSlides[0]).show().attr('aria-hidden', 'false').addClass('section-hero__slide-active');
-            }
+            showSlide(heroIndex);
 
             heroPrev?.addEventListener('click', () => {
                 goToHero(heroIndex - 1);
@@ -1240,7 +1252,6 @@
                 }
             });
 
-            renderDots(heroIndex);
             startHeroAutoPlay();
         }
 

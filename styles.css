@@ -312,38 +312,47 @@ a {
   pointer-events:auto;
 }
 
-.section-hero__slide-entering .section-hero__image {
-  animation:hero-image-in .9s ease forwards;
+.section-hero__fragment-layer {
+  position:absolute;
+  inset:0;
+  z-index:25;
+  opacity:0;
+  pointer-events:none;
 }
 
-.section-hero__slide-leaving .section-hero__image {
-  animation:hero-image-out .9s ease forwards;
+.section-hero__fragment-layer-active {
+  opacity:1;
 }
 
-.section-hero__slide-entering .section-hero__content-block {
-  animation:fade-in-up .7s ease-out forwards;
+.section-hero__fragment {
+  position:absolute;
+  left:var(--left);
+  top:var(--top);
+  width:var(--width);
+  height:var(--height);
+  background-image:var(--bg-image);
+  background-size:var(--bg-size);
+  background-position:var(--bg-position);
+  opacity:0;
+  transform:translateY(24px) scale(1.12) rotate(2deg);
+  animation:hero-fragment-in .7s cubic-bezier(.22,.61,.36,1) forwards;
 }
 
-
-@keyframes hero-image-in {
-  from {
-    transform:scale(1.08);
-    filter:brightness(.8);
+@keyframes hero-fragment-in {
+  0% {
+    opacity:0;
+    transform:translateY(24px) scale(1.12) rotate(2deg);
+    filter:blur(2px) brightness(.8);
   }
-  to {
-    transform:scale(1);
-    filter:brightness(1);
-  }
-}
 
-@keyframes hero-image-out {
-  from {
-    transform:scale(1);
-    filter:brightness(1);
+  55% {
+    opacity:1;
   }
-  to {
-    transform:scale(1.05);
-    filter:brightness(.85);
+
+  100% {
+    opacity:0;
+    transform:translateY(-14px) scale(1) rotate(0deg);
+    filter:blur(0) brightness(1);
   }
 }
 
