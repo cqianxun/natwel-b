@@ -137,8 +137,7 @@
                     <div class="section-hero__media">
                         <div class="section-hero__overlay">
                         </div>
-                        <div class="section-hero__image asset-hero-main" data-alt="Industrial technician examining smart meter array in high-tech facility">
-                        </div>
+                        <img class="section-hero__image" alt="Industrial technician examining smart meter array in high-tech facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3XkQ1wENBR-vs5-aIjoMZTseg_8-LWLt_H-1vL-sBLanWQWwSSsTIjk4giF0ph0Jq3jdFC0Q6pEkFAsvcAXBGbdHPohXLULHQxjvEWfovdnm0ygDUiprgNovJUKVNikq9ZhkkFKtuth3L1meFMC1pb8ZxClkwLx0BWFmvCesQQOGEKRkszNPuzLk_Ph2JoujS1gAGibqc6I1evpjYaomxsqMT5cvAuk4BV350kLoqiFXAixwxljLvuBdOPRoUmf5UTa5TWfTEX0Y"/>
                     </div>
                     <div class="section-hero__content">
                         <div class="section-hero__content-block">
@@ -173,8 +172,7 @@
                     <div class="section-hero__media">
                         <div class="section-hero__overlay">
                         </div>
-                        <div class="section-hero__image asset-hero-secondary" data-alt="Large-scale utility network and smart meter infrastructure">
-                        </div>
+                        <img class="section-hero__image" alt="Large-scale utility network and smart meter infrastructure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKYaQB_J-gAp5ein-M6REgTjEH9mRDOlx0dC3YGUjSe6FhKhA7N7oteDG8ZVZtzMUP0rx6BvzXbofUq0bQFsaZc3MVKIqOoJD57MxiOmOJ9bOrI5EZLNC4D1UNiw9KgV02Pog-3GPGqWKC4-rDwSZSMOu-u1Qo9bI5qmUs1_btcaXQvFqPV152eMyDhF08rk8w9JUbbFP-v-N-J46sUKNtp_mSYwKwjzl3U0vVrtudT5505kggfCkJmxPLtB0VfeY9pk0lbNbPofg"/>
                     </div>
                     <div class="section-hero__content">
                         <div class="section-hero__content-block">
@@ -209,8 +207,7 @@
                     <div class="section-hero__media">
                         <div class="section-hero__overlay">
                         </div>
-                        <div class="section-hero__image asset-hero-tertiary" data-alt="Energy analytics dashboard and connected metering devices">
-                        </div>
+                        <img class="section-hero__image" alt="Energy analytics dashboard and connected metering devices" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZcC6hqcp7u898UogYYgS_95YHodi7PAxALrIELzHpVeodgrKntjBE1D60F4efBJoizfZjwHMVrFw3451t136Lh3V9ie_Q1NnaaPo6zEFuZDxo3uCSE2jMidiRMtxjuiCMdTTUfcT6nSkTqAd1ets9RnYJBEqqtWM5uZOS8qW41kgKwX2t8hPnoQ6naJEFsbKVPhlp059TGKsocmV0MYmuebi_oBCy2bdiwF8eXyYy5LO-OMMFyTu0Lqhx1VV9csjrbVzdztE-NZ4"/>
                     </div>
                     <div class="section-hero__content">
                         <div class="section-hero__content-block">
@@ -1154,7 +1151,7 @@
 
             const getSlideImage = (slide) => {
                 const imageElement = slide.querySelector('.section-hero__image');
-                return imageElement ? window.getComputedStyle(imageElement).backgroundImage : '';
+                return imageElement ? `url('${imageElement.getAttribute('src')}')` : '';
             };
 
             const playFragmentTransition = (backgroundImage) => {
