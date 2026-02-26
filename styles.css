@@ -348,11 +348,11 @@ a {
 }
 
 .section-hero__image {
-  height:100%;width:100%;background-size:cover;background-position:50%;transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;transition-duration:10s
+  height:100%;width:100%;background-size:cover;background-position:50%;transform:none
 }
 
 .section-hero__image:hover {
-  transform:translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1.05) scaleY(1.05)
+  transform:none
 }
 
 .section-hero__content {
