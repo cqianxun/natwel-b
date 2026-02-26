@@ -1163,12 +1163,14 @@
                     for (let column = 0; column < fragmentColumns; column += 1) {
                         const piece = document.createElement('span');
                         piece.className = 'section-hero__fragment';
-                        piece.style.setProperty('--left', `${(column * 100) / fragmentColumns}%`);
-                        piece.style.setProperty('--top', `${(row * 100) / fragmentRows}%`);
-                        piece.style.setProperty('--width', `${100 / fragmentColumns}%`);
-                        piece.style.setProperty('--height', `${100 / fragmentRows}%`);
-                        piece.style.setProperty('--bg-size', `${fragmentColumns * 100}% ${fragmentRows * 100}%`);
-                        piece.style.setProperty('--bg-position', `${(column * 100) / (fragmentColumns - 1)}% ${(row * 100) / (fragmentRows - 1)}%`);
+                        const left = (column * 100) / fragmentColumns;
+                        const top = (row * 100) / fragmentRows;
+                        const right = 100 - ((column + 1) * 100) / fragmentColumns;
+                        const bottom = 100 - ((row + 1) * 100) / fragmentRows;
+                        piece.style.setProperty('--left', `${left}%`);
+                        piece.style.setProperty('--top', `${top}%`);
+                        piece.style.setProperty('--right', `${right}%`);
+                        piece.style.setProperty('--bottom', `${bottom}%`);
                         piece.style.setProperty('--bg-image', backgroundImage);
                         piece.style.setProperty('--delay', `${(row + column) * fragmentStaggerMs}ms`);
                         pieces.push(piece);

@@ -285,7 +285,7 @@ a {
 }
 
 .section-hero {
-  position:relative;height:90vh;min-height:700px;width:100%;overflow:hidden;background-color:rgb(17, 24, 39)
+  position:relative;height:700px;width:100%;overflow:hidden;background-color:rgb(17, 24, 39)
 }
 
 
@@ -322,21 +322,16 @@ a {
 
 .section-hero__fragment {
   position:absolute;
-  left:var(--left);
-  top:var(--top);
-  width:var(--width);
-  height:var(--height);
+  inset:0;
   background-image:var(--bg-image);
-  background-size:var(--bg-size);
-  background-position:var(--bg-position);
-  clip-path:inset(0 100% 100% 0);
-  transform:none;
+  background-size:cover;
+  background-position:50%;
+  clip-path:inset(var(--top) calc(100% - var(--left)) calc(100% - var(--top)) var(--left));
   transition:clip-path .55s steps(5,end) var(--delay);
 }
 
 .section-hero__fragment-active {
-  clip-path:inset(0 0 0 0);
-  transform:none;
+  clip-path:inset(var(--top) var(--right) var(--bottom) var(--left));
 }
 
 .section-hero__media {
