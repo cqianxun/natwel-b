@@ -1120,6 +1120,7 @@
                 </div>
             </div>
         </footer>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
             (() => {
         const heroSection = document.getElementById('hero-carousel');
@@ -1127,19 +1128,14 @@
         const heroDots = Array.from(document.querySelectorAll('[data-hero-dot]'));
         const heroPrev = document.getElementById('hero-prev');
         const heroNext = document.getElementById('hero-next');
+        const $ = window.jQuery;
 
         if (heroSection && heroSlides.length && heroDots.length) {
             let heroIndex = 0;
             let heroTimer = null;
             const autoplayMs = 7000;
 
-            const renderHero = (index) => {
-                heroSlides.forEach((slide, slideIndex) => {
-                    const active = slideIndex === index;
-                    slide.classList.toggle('section-hero__slide-active', active);
-                    slide.setAttribute('aria-hidden', active ? 'false' : 'true');
-                });
-
+            const renderDots = (index) => {
                 heroDots.forEach((dot, dotIndex) => {
                     const active = dotIndex === index;
                     dot.className = active
@@ -1149,9 +1145,52 @@
                 });
             };
 
+            const renderHero = (index) => {
+                if ($) {
+                    const currentSlide = heroSlides[heroIndex];
+                    const nextSlide = heroSlides[index];
+
+                    if (currentSlide === nextSlide) {
+                        renderDots(index);
+                        return;
+                    }
+
+                    const $current = $(currentSlide);
+                    const $next = $(nextSlide);
+
+                    $current
+                        .removeClass('section-hero__slide-entering')
+                        .addClass('section-hero__slide-leaving')
+                        .stop(true, true)
+                        .fadeOut(650, function () {
+                            $(this)
+                                .removeClass('section-hero__slide-active section-hero__slide-leaving')
+                                .attr('aria-hidden', 'true');
+                        });
+
+                    $next
+                        .stop(true, true)
+                        .css('display', 'none')
+                        .addClass('section-hero__slide-active section-hero__slide-entering')
+                        .attr('aria-hidden', 'false')
+                        .fadeIn(650, function () {
+                            $(this).removeClass('section-hero__slide-entering');
+                        });
+                } else {
+                    heroSlides.forEach((slide, slideIndex) => {
+                        const active = slideIndex === index;
+                        slide.classList.toggle('section-hero__slide-active', active);
+                        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+                    });
+                }
+
+                renderDots(index);
+            };
+
             const goToHero = (index) => {
-                heroIndex = (index + heroSlides.length) % heroSlides.length;
-                renderHero(heroIndex);
+                const nextIndex = (index + heroSlides.length) % heroSlides.length;
+                renderHero(nextIndex);
+                heroIndex = nextIndex;
             };
 
             const stopHeroAutoPlay = () => {
@@ -1167,6 +1206,11 @@
                     goToHero(heroIndex + 1);
                 }, autoplayMs);
             };
+
+            if ($) {
+                $(heroSlides).hide().attr('aria-hidden', 'true');
+                $(heroSlides[0]).show().attr('aria-hidden', 'false').addClass('section-hero__slide-active');
+            }
 
             heroPrev?.addEventListener('click', () => {
                 goToHero(heroIndex - 1);
@@ -1196,7 +1240,7 @@
                 }
             });
 
-            renderHero(heroIndex);
+            renderDots(heroIndex);
             startHeroAutoPlay();
         }
 
