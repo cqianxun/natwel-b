@@ -285,7 +285,53 @@ a {
 }
 
 .section-hero {
-  position:relative;height:90vh;min-height:700px;width:100%;overflow:hidden;background-color:rgb(17, 24, 39)
+  position:relative;height:700px;width:100%;overflow:hidden;background-color:rgb(17, 24, 39)
+}
+
+
+.section-hero__slides {
+  position:relative;
+  height:100%;
+  width:100%
+}
+
+.section-hero__slide {
+  position:absolute;
+  inset:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.section-hero__slide-active {
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.section-hero__fragment-layer {
+  position:absolute;
+  inset:0;
+  z-index:25;
+  pointer-events:none;
+  overflow:hidden;
+  display:none;
+}
+
+.section-hero__fragment-layer-active {
+  display:block;
+}
+
+.section-hero__fragment {
+  position:absolute;
+  inset:0;
+  background-image:var(--bg-image);
+  background-size:cover;
+  background-position:50%;
+  clip-path:inset(var(--top) calc(100% - var(--left)) calc(100% - var(--top)) var(--left));
+  transition:clip-path .55s steps(5,end) var(--delay);
+}
+
+.section-hero__fragment-active {
+  clip-path:inset(var(--top) var(--right) var(--bottom) var(--left));
 }
 
 .section-hero__media {
@@ -297,11 +343,11 @@ a {
 }
 
 .section-hero__image {
-  height:100%;width:100%;background-size:cover;background-position:50%;transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s;transition-duration:10s
+  display:block;height:100%;width:100%;object-fit:cover;object-position:50% 50%;transform:none
 }
 
 .section-hero__image:hover {
-  transform:translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1.05) scaleY(1.05)
+  transform:none
 }
 
 .section-hero__content {
@@ -1068,9 +1114,9 @@ a {
   color:rgb(255, 255, 255)
 }
 
-.asset-hero-main {
-  background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3XkQ1wENBR-vs5-aIjoMZTseg_8-LWLt_H-1vL-sBLanWQWwSSsTIjk4giF0ph0Jq3jdFC0Q6pEkFAsvcAXBGbdHPohXLULHQxjvEWfovdnm0ygDUiprgNovJUKVNikq9ZhkkFKtuth3L1meFMC1pb8ZxClkwLx0BWFmvCesQQOGEKRkszNPuzLk_Ph2JoujS1gAGibqc6I1evpjYaomxsqMT5cvAuk4BV350kLoqiFXAixwxljLvuBdOPRoUmf5UTa5TWfTEX0Y')
-}
+
+
+
 
 .asset-capability-residential {
   background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHjOLXjsrIsDIY7IpG4Bxwe2lXXtWTC504aoYicJjVvrYmFp9Cif-1Zdz8iKtD6PR3Nk7GdSzgfJP13Gr0SBr8e2AqkGMQ9HFGrfusfrWoF8A9trNzxOA1IEwdf8UrOsFHAd_gxwkDtKPexzjvNsZOFQfuzoxW4rSfd5lnshKdHbAzXIc3C2lRCV5OC2hW8FYn69Jf9rjDOn9Iybz9HeF3pfPGQzsTqWF9ArFg2PbZ6q1KVExzFEFBX6dbEBkOjtmW_H0ooZowBVY')
