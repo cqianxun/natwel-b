@@ -1177,10 +1177,14 @@
 
                 heroFragmentLayer.innerHTML = '';
                 heroFragmentLayer.append(...pieces);
+                heroFragmentLayer.classList.remove('section-hero__fragment-layer-active');
+                void heroFragmentLayer.offsetWidth;
                 heroFragmentLayer.classList.add('section-hero__fragment-layer-active');
 
                 window.requestAnimationFrame(() => {
-                    pieces.forEach((piece) => piece.classList.add('section-hero__fragment-active'));
+                    window.requestAnimationFrame(() => {
+                        pieces.forEach((piece) => piece.classList.add('section-hero__fragment-active'));
+                    });
                 });
             };
 
@@ -1193,11 +1197,7 @@
                 renderDots(index);
             };
 
-            const goToHero = (index) => {
-                if (isAnimating) return;
-                const nextIndex = (index + heroSlides.length) % heroSlides.length;
-                if (nextIndex === heroIndex) return;
-
+            const transitionToHero = (nextIndex) => {
                 const nextBackgroundImage = getSlideImage(heroSlides[nextIndex]);
                 isAnimating = true;
                 playFragmentTransition(nextBackgroundImage);
@@ -1209,6 +1209,13 @@
                     heroFragmentLayer.innerHTML = '';
                     isAnimating = false;
                 }, transitionMs);
+            };
+
+            const goToHero = (index) => {
+                if (isAnimating) return;
+                const nextIndex = (index + heroSlides.length) % heroSlides.length;
+                if (nextIndex === heroIndex) return;
+                transitionToHero(nextIndex);
             };
 
             const stopHeroAutoPlay = () => {
