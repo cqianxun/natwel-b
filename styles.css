@@ -335,7 +335,7 @@ a {
   background-position:var(--bg-position);
   opacity:0;
   transform:translateY(24px) scale(1.12) rotate(2deg);
-  animation:hero-fragment-in .7s cubic-bezier(.22,.61,.36,1) forwards;
+  animation:hero-fragment-in 1s cubic-bezier(.22,.61,.36,1) forwards;
 }
 
 @keyframes hero-fragment-in {

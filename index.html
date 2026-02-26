@@ -1136,9 +1136,11 @@
             let heroTimer = null;
             let isAnimating = false;
             const autoplayMs = 7000;
-            const transitionMs = 900;
-            const fragmentColumns = 6;
-            const fragmentRows = 4;
+            const fragmentColumns = 10;
+            const fragmentRows = 6;
+            const fragmentStaggerMs = 80;
+            const fragmentDurationMs = 1000;
+            const transitionMs = ((fragmentRows - 1 + fragmentColumns - 1) * fragmentStaggerMs) + fragmentDurationMs;
 
             const renderDots = (index) => {
                 heroDots.forEach((dot, dotIndex) => {
@@ -1168,7 +1170,7 @@
                         piece.style.setProperty('--bg-size', `${fragmentColumns * 100}% ${fragmentRows * 100}%`);
                         piece.style.setProperty('--bg-position', `${(column * 100) / (fragmentColumns - 1)}% ${(row * 100) / (fragmentRows - 1)}%`);
                         piece.style.setProperty('--bg-image', backgroundImage);
-                        piece.style.animationDelay = `${(row * fragmentColumns + column) * 30}ms`;
+                        piece.style.animationDelay = `${(row + column) * fragmentStaggerMs}ms`;
                         pieces.push(piece);
                     }
                 }
@@ -1205,7 +1207,7 @@
                     showSlide(nextIndex);
                     heroIndex = nextIndex;
                     isAnimating = false;
-                }, 260);
+                }, transitionMs);
             };
 
             const stopHeroAutoPlay = () => {
