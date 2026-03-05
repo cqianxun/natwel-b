@@ -1,132 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Smart Meter Product List - Simplified Desktop</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  <link href="styles.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Meter Product List - Tailwind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="plp-page-shell">
-<main class="plp-catalog-layout">
-  <aside class="plp-catalog-sidebar">
-    <div class="plp-breadcrumb-nav">
-      <a class="plp-breadcrumb-nav__link" href="#">Home</a><span>/</span>
-      <a class="plp-breadcrumb-nav__link" href="#">Products</a><span>/</span>
-      <span class="plp-breadcrumb-nav__current">Smart Meters</span>
+<body class="bg-[#f8f8f5] text-[#181710] [font-family:'Space_Grotesk',sans-serif] min-h-screen">
+  <main class="mx-auto w-full max-w-[1440px] px-4 py-6 md:px-6 md:py-8 xl:px-10">
+    <div class="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)] xl:gap-8">
+      <aside class="space-y-6 md:space-y-8">
+        <div class="flex flex-wrap gap-2 text-sm text-[#8d835e]">
+          <a href="#" class="hover:text-[#fcc603]">Home</a><span>/</span>
+          <a href="#" class="hover:text-[#fcc603]">Products</a><span>/</span>
+          <span class="font-medium text-[#181710]">Smart Meters</span>
+        </div>
+
+        <div class="rounded-xl border border-[#f0f0ed] bg-white p-5 shadow-sm md:p-6">
+          <h3 class="mb-4 flex items-center gap-2 text-lg font-bold">
+            <span class="material-symbols-outlined text-[#fcc603]">category</span>Categories
+          </h3>
+          <ul class="space-y-1 text-sm">
+            <li><a href="#" class="flex items-center justify-between rounded-lg border-l-4 border-[#fcc603] bg-[rgba(252,198,3,0.1)] px-3 py-3 font-medium"><span>All Meters</span><span class="rounded-full bg-white px-2 py-0.5 text-xs shadow-sm">124</span></a></li>
+            <li><a href="#" class="flex items-center justify-between rounded-lg px-3 py-3 text-[#8d835e] hover:bg-[#f8f8f5] hover:text-[#181710]"><span>Single Phase</span><span class="text-xs">42</span></a></li>
+            <li><a href="#" class="flex items-center justify-between rounded-lg px-3 py-3 text-[#8d835e] hover:bg-[#f8f8f5] hover:text-[#181710]"><span>Three Phase</span><span class="text-xs">36</span></a></li>
+            <li><a href="#" class="flex items-center justify-between rounded-lg px-3 py-3 text-[#8d835e] hover:bg-[#f8f8f5] hover:text-[#181710]"><span>DIN Rail Mount</span><span class="text-xs">18</span></a></li>
+            <li><a href="#" class="flex items-center justify-between rounded-lg px-3 py-3 text-[#8d835e] hover:bg-[#f8f8f5] hover:text-[#181710]"><span>Panel Meters</span><span class="text-xs">15</span></a></li>
+            <li><a href="#" class="flex items-center justify-between rounded-lg px-3 py-3 text-[#8d835e] hover:bg-[#f8f8f5] hover:text-[#181710]"><span>Smart Gateways</span><span class="text-xs">13</span></a></li>
+          </ul>
+        </div>
+
+        <div class="rounded-xl border border-[rgba(252,198,3,0.2)] bg-[rgba(252,198,3,0.05)] p-5 md:p-6">
+          <h4 class="mb-2 text-base font-bold">Need a Custom Solution?</h4>
+          <p class="mb-4 text-sm leading-6 text-[#8d835e]">Our engineering team can design meters specific to your grid requirements.</p>
+          <button type="button" class="w-full rounded-lg border border-[#fcc603] bg-white px-4 py-2 text-sm font-bold hover:bg-[#fcc603]">Contact Sales</button>
+        </div>
+      </aside>
+
+      <section>
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <article class="group flex flex-col overflow-hidden rounded-xl border border-[#f0f0ed] bg-white transition hover:border-[#fcc603] hover:shadow-[0_10px_20px_rgba(252,198,3,0.15)]">
+            <div class="aspect-[4/3] overflow-hidden bg-[#f8f8f5] p-6">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuNmRdnBuDMBJRupjP6tM3v-LApfVSwMcGLQM5iEPDjqgkxd1l3nNZvlV97qRoMm8t-NWu1vDqaZG-qs6LGb7Ysd1lofs-xtsh79iQZrr_5NGfRyVWYmK8CQv7jvJ_xD8ZSvf_HbpLLQpJFWmXEerVNrTBM0_diuG_daivVsdhJPkLT_QWyjN58gu8QwJqs4GLQQ9Z0nllLv0EOnWGEdLUTgPRz9bMrhQ22_zDaXcR6sjJhOuHOXmCzVMwf-pFgG5vmk8k0G0ZBW8" alt="Industrial smart meter product" class="h-full w-full object-cover opacity-90 mix-blend-multiply transition group-hover:scale-105" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="mb-1 text-xs font-medium text-[#8d835e]">Single Phase</p>
+              <h3 class="mb-4 text-lg font-bold group-hover:text-[#e5b300]">VM-100 Compact</h3>
+              <div class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Voltage</span>
+                  <span class="font-medium">230V</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Accuracy</span>
+                  <span class="font-medium">Class 1.0</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Connectivity</span>
+                  <span class="truncate font-medium">RS485</span>
+                </div>
+              </div>
+              <div class="mt-auto flex gap-3">
+                <button class="flex-1 rounded-lg border border-[#e5e5e0] px-3 py-2 text-sm font-semibold hover:bg-[#f8f8f5]">Details</button>
+                <button class="flex-1 rounded-lg bg-[#fcc603] px-3 py-2 text-sm font-bold hover:bg-[#e5b300]">Inquiry</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="group flex flex-col overflow-hidden rounded-xl border border-[#f0f0ed] bg-white transition hover:border-[#fcc603] hover:shadow-[0_10px_20px_rgba(252,198,3,0.15)]">
+            <div class="aspect-[4/3] overflow-hidden bg-[#f8f8f5] p-6">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr1lqRmiwmdYTfn3dGV3GlvJVcgE0SVESsPfvhO2YyYF_ACUIqGpb9lBl2X1VNkxPyVD9iSoJ2dFL0ypFiNdqNKOsG6tmjTag8nTM_ZzknC778QhystcfIbq7MRr4DFOdkY5CbbCJn9Pw4WTAL2luZAZ8UMlcDumptpf3B5yM-2Fw1tSUrB7EPLTrvPTXMHwkjY94hGH-G0O43FZPZmvxoQH0I4gNi__Q4gjPriO_Xxp8M0PyL6QGtGApRWC8pHrW8rACzX_VGLxY" alt="DIN rail smart meter" class="h-full w-full object-cover opacity-90 mix-blend-multiply transition group-hover:scale-105" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="mb-1 text-xs font-medium text-[#8d835e]">DIN Rail</p>
+              <h3 class="mb-4 text-lg font-bold group-hover:text-[#e5b300]">DR-500 Smart Rail</h3>
+              <div class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Voltage</span>
+                  <span class="font-medium">230/400V</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Accuracy</span>
+                  <span class="font-medium">Class 0.2S</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Connectivity</span>
+                  <span class="truncate font-medium">Ethernet, Modbus TCP</span>
+                </div>
+              </div>
+              <div class="mt-auto flex gap-3">
+                <button class="flex-1 rounded-lg border border-[#e5e5e0] px-3 py-2 text-sm font-semibold hover:bg-[#f8f8f5]">Details</button>
+                <button class="flex-1 rounded-lg bg-[#fcc603] px-3 py-2 text-sm font-bold hover:bg-[#e5b300]">Inquiry</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="group flex flex-col overflow-hidden rounded-xl border border-[#f0f0ed] bg-white transition hover:border-[#fcc603] hover:shadow-[0_10px_20px_rgba(252,198,3,0.15)]">
+            <div class="aspect-[4/3] overflow-hidden bg-[#f8f8f5] p-6">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6uivqFA4aq3DgOF5I0g1Q75r5iz_oLRTbajfCs6LQ4dGxLI8Qec0kSeQHCNQWfVGxL4MTgK0Meb6DJjs1sxbIqlCNXQBI2wU5lVVblUb6TgRjaxfH4G_oU6j35Ihy2m7c6fTxANdPd6i3fv5VMjKcMESEmIh7VGd0m4oA2W7wlIu2GxH5NWycr9JiYm7qKufdR7q7yiMDwX0hTiSlQYtQ_l13W8SxWm6kK_1gKr4xkJ2z9A6v1A9a7rQh_s35UQ" alt="Three-phase meter" class="h-full w-full object-cover opacity-90 mix-blend-multiply transition group-hover:scale-105" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="mb-1 text-xs font-medium text-[#8d835e]">Three Phase</p>
+              <h3 class="mb-4 text-lg font-bold group-hover:text-[#e5b300]">TM-300 Industrial</h3>
+              <div class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Voltage</span>
+                  <span class="font-medium">400V</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Accuracy</span>
+                  <span class="font-medium">Class 0.5S</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Connectivity</span>
+                  <span class="truncate font-medium">Modbus RTU, M-Bus</span>
+                </div>
+              </div>
+              <div class="mt-auto flex gap-3">
+                <button class="flex-1 rounded-lg border border-[#e5e5e0] px-3 py-2 text-sm font-semibold hover:bg-[#f8f8f5]">Details</button>
+                <button class="flex-1 rounded-lg bg-[#fcc603] px-3 py-2 text-sm font-bold hover:bg-[#e5b300]">Inquiry</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="group flex flex-col overflow-hidden rounded-xl border border-[#f0f0ed] bg-white transition hover:border-[#fcc603] hover:shadow-[0_10px_20px_rgba(252,198,3,0.15)]">
+            <div class="aspect-[4/3] overflow-hidden bg-[#f8f8f5] p-6">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4VGm4i1-3jN_x7rZQx9x6mB3eS2rP5uQ9xJj8LzcQ77rlL6SoCWTRXMDYYyB5tZz1lqY0nZyYJ74vBG4v4qB40mLZx0xA8f3Ylf0rS0frK-QYnyjqWQdD0r2e3qv5OW6Rxprvj8K8XkXk34mM2ySNYqHxBcd3cA" alt="Advanced meter" class="h-full w-full object-cover opacity-90 mix-blend-multiply transition group-hover:scale-105" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="mb-1 text-xs font-medium text-[#8d835e]">Advanced Metering</p>
+              <h3 class="mb-4 text-lg font-bold group-hover:text-[#e5b300]">AMI-Pro Connect</h3>
+              <div class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Protocol</span>
+                  <span class="font-medium">DLMS/COSEM</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Accuracy</span>
+                  <span class="font-medium">Class 0.2S</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Connectivity</span>
+                  <span class="truncate font-medium">NB-IoT, LTE Cat-M</span>
+                </div>
+              </div>
+              <div class="mt-auto flex gap-3">
+                <button class="flex-1 rounded-lg border border-[#e5e5e0] px-3 py-2 text-sm font-semibold hover:bg-[#f8f8f5]">Details</button>
+                <button class="flex-1 rounded-lg bg-[#fcc603] px-3 py-2 text-sm font-bold hover:bg-[#e5b300]">Inquiry</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="group flex flex-col overflow-hidden rounded-xl border border-[#f0f0ed] bg-white transition hover:border-[#fcc603] hover:shadow-[0_10px_20px_rgba(252,198,3,0.15)]">
+            <div class="aspect-[4/3] overflow-hidden bg-[#f8f8f5] p-6">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFMPL-ilEkG43QxaKTGdtYrDcd2fl_XtWDwRYcT850GAK0bIfBZxRbnVzqnJKn6p7xM0eYtPvUXzsmFF8T5rlrbqA9CNfPmyQaBtWShWxTKo79YXIs15sq6Dr20bOUr1moeIXVjwv5JEnolrCSnh0k8TMbdbYH9IHhfxm-yO7cBDIuka8QMqMVe3qR6zhGGVwvDE1J5eQxGdzi1TxdUcwWOx5bef6e9TDQUSl_LbvaY7miiKDcO7y3INAljwa5alTFOhMDHBv7KTU" alt="Smart gateway" class="h-full w-full object-cover opacity-90 mix-blend-multiply transition group-hover:scale-105" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="mb-1 text-xs font-medium text-[#8d835e]">Smart Gateway</p>
+              <h3 class="mb-4 text-lg font-bold group-hover:text-[#e5b300]">GW-X Data Concentrator</h3>
+              <div class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Protocol</span>
+                  <span class="font-medium">Zigbee/LTE</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Capacity</span>
+                  <span class="font-medium">100+ Nodes</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Interface</span>
+                  <span class="truncate font-medium">Ethernet, USB, RS232</span>
+                </div>
+              </div>
+              <div class="mt-auto flex gap-3">
+                <button class="flex-1 rounded-lg border border-[#e5e5e0] px-3 py-2 text-sm font-semibold hover:bg-[#f8f8f5]">Details</button>
+                <button class="flex-1 rounded-lg bg-[#fcc603] px-3 py-2 text-sm font-bold hover:bg-[#e5b300]">Inquiry</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="group flex flex-col overflow-hidden rounded-xl border border-[#f0f0ed] bg-white transition hover:border-[#fcc603] hover:shadow-[0_10px_20px_rgba(252,198,3,0.15)]">
+            <div class="aspect-[4/3] overflow-hidden bg-[#f8f8f5] p-6">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuNmRdnBuDMBJRupjP6tM3v-LApfVSwMcGLQM5iEPDjqgkxd1l3nNZvlV97qRoMm8t-NWu1vDqaZG-qs6LGb7Ysd1lofs-xtsh79iQZrr_5NGfRyVWYmK8CQv7jvJ_xD8ZSvf_HbpLLQpJFWmXEerVNrTBM0_diuG_daivVsdhJPkLT_QWyjN58gu8QwJqs4GLQQ9Z0nllLv0EOnWGEdLUTgPRz9bMrhQ22_zDaXcR6sjJhOuHOXmCzVMwf-pFgG5vmk8k0G0ZBW8" alt="Panel meter" class="h-full w-full object-cover opacity-90 mix-blend-multiply transition group-hover:scale-105" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="mb-1 text-xs font-medium text-[#8d835e]">Panel Meter</p>
+              <h3 class="mb-4 text-lg font-bold group-hover:text-[#e5b300]">PM-220 Display</h3>
+              <div class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Current</span>
+                  <span class="font-medium">5(80)A</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Display</span>
+                  <span class="font-medium">LCD Backlit</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-[#8d835e]">Connectivity</span>
+                  <span class="truncate font-medium">Pulse Output, RS485</span>
+                </div>
+              </div>
+              <div class="mt-auto flex gap-3">
+                <button class="flex-1 rounded-lg border border-[#e5e5e0] px-3 py-2 text-sm font-semibold hover:bg-[#f8f8f5]">Details</button>
+                <button class="flex-1 rounded-lg bg-[#fcc603] px-3 py-2 text-sm font-bold hover:bg-[#e5b300]">Inquiry</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        {pboot:if({page:rows}>0)}
+          <div class="pagebar mt-8">
+            <div class="pagination flex flex-wrap items-center justify-center gap-2 text-sm">
+              <a class="page-item page-link hidden-sm rounded-lg border border-[#e5e5e0] px-3 py-2 text-[#8d835e] hover:bg-white hover:text-[#181710]" href="{page:index}" title="首页">首页</a>
+              <a class="page-item page-link st rounded-lg border border-[#e5e5e0] px-3 py-2 text-[#8d835e] hover:bg-white hover:text-[#181710]" href="{page:pre}" title="上一页"><<</a>
+              {page:numbar}
+              <a class="page-item page-link rounded-lg bg-[#fcc603] px-3 py-2 font-bold text-[#181710] shadow-sm" href="javascript:;" title="当前页/总页数">{page:current}/{page:count}</a>
+              <a class="page-item page-link st rounded-lg border border-[#e5e5e0] px-3 py-2 text-[#8d835e] hover:bg-white hover:text-[#181710]" href="{page:next}" title="下一页">>></a>
+              <a class="page-item page-link hidden-sm rounded-lg border border-[#e5e5e0] px-3 py-2 text-[#8d835e] hover:bg-white hover:text-[#181710]" href="{page:last}" title="尾页">尾页</a>
+            </div>
+          </div>
+        {else}
+          <div class="tac text-secondary mt-8 text-center text-[#8d835e]">本分类下无任何数据！</div>
+        {/pboot:if}
+      </section>
     </div>
-    <div class="plp-filter-panel">
-      <h3 class="plp-filter-panel__title"><span class="material-symbols-outlined plp-filter-panel__title-icon">category</span>Categories</h3>
-      <ul class="plp-filter-panel__menu">
-        <li><a class="plp-filter-panel__option plp-filter-panel__option--active" href="#"><span>All Meters</span><span class="plp-filter-panel__metric plp-filter-panel__metric-badge">124</span></a></li>
-        <li><a class="plp-filter-panel__option" href="#"><span>Single Phase</span><span class="plp-filter-panel__metric">42</span></a></li>
-        <li><a class="plp-filter-panel__option" href="#"><span>Three Phase</span><span class="plp-filter-panel__metric">36</span></a></li>
-        <li><a class="plp-filter-panel__option" href="#"><span>DIN Rail Mount</span><span class="plp-filter-panel__metric">18</span></a></li>
-        <li><a class="plp-filter-panel__option" href="#"><span>Panel Meters</span><span class="plp-filter-panel__metric">15</span></a></li>
-        <li><a class="plp-filter-panel__option" href="#"><span>Smart Gateways</span><span class="plp-filter-panel__metric">13</span></a></li>
-      </ul>
-    </div>
-    <div class="plp-solution-panel">
-      <h4 class="plp-solution-panel__title">Need a Custom Solution?</h4>
-      <p class="plp-solution-panel__text">Our engineering team can design meters specific to your grid requirements.</p>
-      <button class="plp-button-consulting" type="button">Contact Sales</button>
-    </div>
-  </aside>
-
-  <section class="plp-catalog-main">
-    <div class="plp-product-grid">
-      <article class="plp-product-card">
-        <div class="plp-product-card__media"><img class="plp-product-card__image" alt="Industrial smart meter product" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuNmRdnBuDMBJRupjP6tM3v-LApfVSwMcGLQM5iEPDjqgkxd1l3nNZvlV97qRoMm8t-NWu1vDqaZG-qs6LGb7Ysd1lofs-xtsh79iQZrr_5NGfRyVWYmK8CQv7jvJ_xD8ZSvf_HbpLLQpJFWmXEerVNrTBM0_diuG_daivVsdhJPkLT_QWyjN58gu8QwJqs4GLQQ9Z0nllLv0EOnWGEdLUTgPRz9bMrhQ22_zDaXcR6sjJhOuHOXmCzVMwf-pFgG5vmk8k0G0ZBW8"/></div>
-        <div class="plp-product-card__content">
-          <div class="plp-product-card__meta"><p class="plp-product-card__segment">Single Phase</p><h3 class="plp-product-card__title">VM-100 Compact</h3></div>
-          <div class="plp-product-card__spec-grid">
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Voltage</span><span class="plp-product-card__value">230V</span></div>
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Accuracy</span><span class="plp-product-card__value">Class 1.0</span></div>
-            <div class="plp-product-card__spec plp-product-card__spec--full"><span class="plp-product-card__label">Connectivity</span><span class="plp-product-card__value">RS485</span></div>
-          </div>
-          <div class="plp-product-card__actions"><button class="plp-button-meter plp-button-meter--secondary" type="button">Details</button><button class="plp-button-meter plp-button-meter--primary" type="button">Inquiry</button></div>
-        </div>
-      </article>
-
-      <article class="plp-product-card">
-        <div class="plp-product-card__media"><img class="plp-product-card__image" alt="DIN rail smart meter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr1lqRmiwmdYTfn3dGV3GlvJVcgE0SVESsPfvhO2YyYF_ACUIqGpb9lBl2X1VNkxPyVD9iSoJ2dFL0ypFiNdqNKOsG6tmjTag8nTM_ZzknC778QhystcfIbq7MRr4DFOdkY5CbbCJn9Pw4WTAL2luZAZ8UMlcDumptpf3B5yM-2Fw1tSUrB7EPLTrvPTXMHwkjY94hGH-G0O43FZPZmvxoQH0I4gNi__Q4gjPriO_Xxp8M0PyL6QGtGApRWC8pHrW8rACzX_VGLxY"/></div>
-        <div class="plp-product-card__content">
-          <div class="plp-product-card__meta"><p class="plp-product-card__segment">DIN Rail</p><h3 class="plp-product-card__title">DR-500 Smart Rail</h3></div>
-          <div class="plp-product-card__spec-grid">
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Voltage</span><span class="plp-product-card__value">230/400V</span></div>
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Accuracy</span><span class="plp-product-card__value">Class 0.2S</span></div>
-            <div class="plp-product-card__spec plp-product-card__spec--full"><span class="plp-product-card__label">Connectivity</span><span class="plp-product-card__value">Ethernet, Modbus TCP</span></div>
-          </div>
-          <div class="plp-product-card__actions"><button class="plp-button-meter plp-button-meter--secondary" type="button">Details</button><button class="plp-button-meter plp-button-meter--primary" type="button">Inquiry</button></div>
-        </div>
-      </article>
-
-      <article class="plp-product-card">
-        <div class="plp-product-card__media"><span class="plp-product-card__badge">BEST SELLER</span><img class="plp-product-card__image" alt="Panel mount meter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjhJRnCiod5YGWDQ4g-EvCkJ0-ifFxqRzvli6mYiZF21_YkR-AKZMrpwAA7v4CY6tupIHTSAmp4RTlP6F45q8ctk7IW5evALua5yLKalWdH1g_RiKwMKwZtLm8b6LnHe2Se-hsL_psvzmMQzXEvgrv9UNvvpz8E06SGCrGxj1-dcZqpcPniKC0shRO9BN3aHA_l0IYuJgd6_EITsbgsPXx6JRJpncrytuRSu0ed7ybCCXNZ3AzybOjUTPGGzXtR3vK_Ybt44Mhjus"/></div>
-        <div class="plp-product-card__content">
-          <div class="plp-product-card__meta"><p class="plp-product-card__segment">Panel Mount</p><h3 class="plp-product-card__title">PM-Series 96</h3></div>
-          <div class="plp-product-card__spec-grid">
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Dimensions</span><span class="plp-product-card__value">96x96mm</span></div>
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Display</span><span class="plp-product-card__value">LCD Backlit</span></div>
-            <div class="plp-product-card__spec plp-product-card__spec--full"><span class="plp-product-card__label">Connectivity</span><span class="plp-product-card__value">Pulse Output, RS485</span></div>
-          </div>
-          <div class="plp-product-card__actions"><button class="plp-button-meter plp-button-meter--secondary" type="button">Details</button><button class="plp-button-meter plp-button-meter--primary" type="button">Inquiry</button></div>
-        </div>
-      </article>
-
-      <article class="plp-product-card">
-        <div class="plp-product-card__media"><img class="plp-product-card__image" alt="Three-phase meter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6uivqFA4aq3DgOF5I0g1Q75r5iz_oLRTbajfCs6LQ4dGxLI8Qec0kSeQHCNQWfVGxL4MTgK0Meb6DJjs1sxbIqlCNXQBI2wU5lVVblUb6TgRjaxfH4G_oU6j35Ihy2m7c6fTxANdPd6i3fv5VMjKcMESEmIh7VGd0m4oA2W7wlIu2GxH5NWycr9JiYm7qKufdR7q7yiMDwX0hTiSlQYtQ_l13W8SxWm6kK_1gKr4xkJ2z9A6v1A9a7rQh_s35UQ"/></div>
-        <div class="plp-product-card__content">
-          <div class="plp-product-card__meta"><p class="plp-product-card__segment">Three Phase</p><h3 class="plp-product-card__title">TM-300 Industrial</h3></div>
-          <div class="plp-product-card__spec-grid">
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Voltage</span><span class="plp-product-card__value">400V</span></div>
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Accuracy</span><span class="plp-product-card__value">Class 0.5S</span></div>
-            <div class="plp-product-card__spec plp-product-card__spec--full"><span class="plp-product-card__label">Connectivity</span><span class="plp-product-card__value">Modbus RTU, M-Bus</span></div>
-          </div>
-          <div class="plp-product-card__actions"><button class="plp-button-meter plp-button-meter--secondary" type="button">Details</button><button class="plp-button-meter plp-button-meter--primary" type="button">Inquiry</button></div>
-        </div>
-      </article>
-
-      <article class="plp-product-card">
-        <div class="plp-product-card__media"><img class="plp-product-card__image" alt="Advanced meter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4VGm4i1-3jN_x7rZQx9x6mB3eS2rP5uQ9xJj8LzcQ77rlL6SoCWTRXMDYYyB5tZz1lqY0nZyYJ74vBG4v4qB40mLZx0xA8f3Ylf0rS0frK-QYnyjqWQdD0r2e3qv5OW6Rxprvj8K8XkXk34mM2ySNYqHxBcd3cA"/></div>
-        <div class="plp-product-card__content">
-          <div class="plp-product-card__meta"><p class="plp-product-card__segment">Advanced Metering</p><h3 class="plp-product-card__title">AMI-Pro Connect</h3></div>
-          <div class="plp-product-card__spec-grid">
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Protocol</span><span class="plp-product-card__value">DLMS/COSEM</span></div>
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Accuracy</span><span class="plp-product-card__value">Class 0.2S</span></div>
-            <div class="plp-product-card__spec plp-product-card__spec--full"><span class="plp-product-card__label">Connectivity</span><span class="plp-product-card__value">NB-IoT, LTE Cat-M</span></div>
-          </div>
-          <div class="plp-product-card__actions"><button class="plp-button-meter plp-button-meter--secondary" type="button">Details</button><button class="plp-button-meter plp-button-meter--primary" type="button">Inquiry</button></div>
-        </div>
-      </article>
-
-      <article class="plp-product-card">
-        <div class="plp-product-card__media"><img class="plp-product-card__image" alt="Smart gateway" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFMPL-ilEkG43QxaKTGdtYrDcd2fl_XtWDwRYcT850GAK0bIfBZxRbnVzqnJKn6p7xM0eYtPvUXzsmFF8T5rlrbqA9CNfPmyQaBtWShWxTKo79YXIs15sq6Dr20bOUr1moeIXVjwv5JEnolrCSnh0k8TMbdbYH9IHhfxm-yO7cBDIuka8QMqMVe3qR6zhGGVwvDE1J5eQxGdzi1TxdUcwWOx5bef6e9TDQUSl_LbvaY7miiKDcO7y3INAljwa5alTFOhMDHBv7KTU"/></div>
-        <div class="plp-product-card__content">
-          <div class="plp-product-card__meta"><p class="plp-product-card__segment">Smart Gateway</p><h3 class="plp-product-card__title">GW-X Data Concentrator</h3></div>
-          <div class="plp-product-card__spec-grid">
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Protocol</span><span class="plp-product-card__value">Zigbee/LTE</span></div>
-            <div class="plp-product-card__spec"><span class="plp-product-card__label">Capacity</span><span class="plp-product-card__value">100+ Nodes</span></div>
-            <div class="plp-product-card__spec plp-product-card__spec--full"><span class="plp-product-card__label">Interface</span><span class="plp-product-card__value">Ethernet, USB, RS232</span></div>
-          </div>
-          <div class="plp-product-card__actions"><button class="plp-button-meter plp-button-meter--secondary" type="button">Details</button><button class="plp-button-meter plp-button-meter--primary" type="button">Inquiry</button></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="plp-pagination">
-      <button class="plp-pagination__button plp-pagination__button--frame" type="button"><span class="material-symbols-outlined">chevron_left</span></button>
-      <button class="plp-pagination__button plp-pagination__button--current" type="button">1</button>
-      <button class="plp-pagination__button" type="button">2</button>
-      <button class="plp-pagination__button" type="button">3</button>
-      <span class="plp-pagination__ellipsis">...</span>
-      <button class="plp-pagination__button" type="button">12</button>
-      <button class="plp-pagination__button plp-pagination__button--frame" type="button"><span class="material-symbols-outlined">chevron_right</span></button>
-    </div>
-  </section>
-</main>
+  </main>
 </body>
 </html>
